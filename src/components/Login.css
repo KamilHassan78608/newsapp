@@ -1,0 +1,78 @@
+.login-body{
+    position: fixed;
+    top: 0;
+    z-index: -99;
+    background-image: url('/Users/apple/Documents/Web/Projects/newsapp/public/images/login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* full screen */
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    top: 200px;
+    left: 850px;
+  background: linear-gradient(to top right, #4A89A1, #889297);
+  width: 80%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+
+}
+
+/* Headline */
+.container h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* Inputs */
+.container input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Button */
+.container button {
+  background-color: white;
+  color: #4A89A1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.container button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Link */
+.container a {
+  color: white;
+  text-decoration: underline;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Responsive: center form on mobile */
+@media (max-width: 600px) {
+  .container{
+    position: relative;
+    top: 200px;
+    left: 5px;
+    right: 5px;
+  }
+}
