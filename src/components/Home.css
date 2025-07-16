@@ -18,5 +18,28 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    min-height: 100vh;
+    min-height: 80vh;
+}
+
+.btns{
+    padding-top: 50px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.btns button{
+    height: 40px;
+    width: 100px;
+    font-weight: 800;
+    border-radius: 19px;
+    color: #4A89A1;
+    transition: all 0.3s linear;
+}
+
+.btns button:hover{
+    background-color: #4A89A1;
+    color: wheat;
 }

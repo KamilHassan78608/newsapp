@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from '../Loading';
 import './Home.css';
 
 import Card from './Card';
@@ -11,32 +12,64 @@ export default class Home extends Component {
     super(props);
     this.state = {
       articles: this.articles,
-      loading: false
+      loading: true,
+      page:1,
+      totalResults: this.totalResults,
+      pageSize: 20,
+      category: this.props.Category,
     };
   }
 
   componentDidMount() {
-    this.fetchArticles();
+    this.fetchArticles(this.state.page);
   }
 
-  fetchArticles = async () => {
-    try {
-      const url = "https://newsapi.org/v2/top-headlines?category=business&apiKey=2cf4f4032da54a67a623f83544daa7b7";
-      const data = await fetch(url);
-      const parsedData = await data.json();
-      this.setState({ articles: parsedData.articles });
-    } catch (error) {
-      console.error("Failed to fetch articles", error);
-    }
-  };
+  fetchArticles = async (page) => {
+  const { pageSize } = this.state;
+  const API_KEY = '2cf4f4032da54a67a623f83544daa7b7';  
+  const {category} = this.state;
+
+  try {
+    
+
+    const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${API_KEY}&page=${page}&pageSize=${pageSize}`;
+    this.setState({ loading: true });
+    const res = await fetch(url);
+    const data = await res.json();
+
+    this.setState({
+      articles: data.articles || [],
+      totalResults: data.totalResults || 0,
+      page,
+      loading: false
+    });
+
+  } catch (error) {
+    console.error("Failed to fetch articles", error);
+    this.setState({ loading: false });
+  }
+};
+
+
+  handleNext = () => {
+  this.fetchArticles(this.state.page + 1);
+};
+
+handlePrevious = () => {
+  this.fetchArticles(this.state.page - 1);
+};
+
 
   render() {
     return (
       <div className='body'>
         <h1>Breaking News</h1>
+        {
+          this.state.loading?<Loading />: ""
+        }
         <div className='container'>
           {
-            this.state.articles.map((element) => {
+            !this.state.loading && this.state.articles.map((element) => {
               return (
                 <Card
                   key={element.url}
@@ -51,6 +84,12 @@ export default class Home extends Component {
               );
             })
           }
+        </div>
+        <div className='btns'>
+          <button disabled={this.state.page<=1} onClick={this.handlePrevious}>&larr; Previous</button>
+          <button 
+          disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.state.pageSize)}
+          onClick={this.handleNext}>Next &rarr;</button>
         </div>
       </div>
     );

@@ -9,7 +9,7 @@ export default function App() {
     <div>
       <Navbar />
       <Category />
-      <Home />
+      <Home Category="sports"/>
     </div>
   )
 }
