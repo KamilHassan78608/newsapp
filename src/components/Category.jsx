@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 export default function Category() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,14 +27,13 @@ export default function Category() {
       )}
 
       <ul className={`category-list ${isMobile ? (isOpen ? 'open' : '') : ''}`}>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">Business</a></li>
-        <li><a href="/">Entertainment</a></li>
-        <li><a href="/">General</a></li>
-        <li><a href="/">Health</a></li>
-        <li><a href="/">Science</a></li>
-        <li><a href="/">Sports</a></li>
-        <li><a href="/">Technology</a></li>
+        <li><Link to="/general">Home</Link></li>
+        <li><Link to="/business">Business</Link></li>
+        <li><Link to="/entertainment">Entertainment</Link></li>
+        <li><Link to="/health">Health</Link></li>
+        <li><Link to="/science">Science</Link></li>
+        <li><Link to="/sports">Sports</Link></li>
+        <li><Link to="/technology">Technology</Link></li>
       </ul>
     </div>
   );

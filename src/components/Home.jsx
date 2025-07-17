@@ -63,11 +63,11 @@ handlePrevious = () => {
   render() {
     return (
       <div className='body'>
-        <h1>Breaking News</h1>
+        <h1>{this.state.category} News</h1>
         {
           this.state.loading?<Loading />: ""
         }
-        <div className='container'>
+        <div className="cards">
           {
             !this.state.loading && this.state.articles.map((element) => {
               return (
@@ -85,6 +85,7 @@ handlePrevious = () => {
             })
           }
         </div>
+        
         <div className='btns'>
           <button disabled={this.state.page<=1} onClick={this.handlePrevious}>&larr; Previous</button>
           <button 

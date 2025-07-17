@@ -11,14 +11,14 @@
 .body h1{
     padding-top: 40px;
     padding-bottom: 0px;
+    text-transform: capitalize;
 }
 
-.container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.cards{
+    display: felx;
     flex-wrap: wrap;
-    min-height: 80vh;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btns{

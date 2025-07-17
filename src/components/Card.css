@@ -1,5 +1,6 @@
 .news-card {
   display: flex;
+  display: inline-block;
   flex-direction: column;
   background-color: white;
   border-radius: 12px;
@@ -8,7 +9,7 @@
   width: 350px;
   height: 500px;
   margin-top: 40px;
-  margin-left: 20px;
+  margin-left: 60px;
   font-family: 'Segoe UI', sans-serif;
   align-items: start;
   text-align: start;
