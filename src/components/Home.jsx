@@ -18,6 +18,7 @@ export default class Home extends Component {
       pageSize: 20,
       category: this.props.Category,
     };
+    document.title = `${this.props.Category.charAt(0).toUpperCase() + this.props.Category.slice(1)} - NewsX`;
   }
 
   componentDidMount() {
@@ -63,7 +64,7 @@ handlePrevious = () => {
   render() {
     return (
       <div className='body'>
-        <h1>{this.state.category} News</h1>
+        <h1>{this.state.category} Top HeadLines</h1>
         {
           this.state.loading?<Loading />: ""
         }

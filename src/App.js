@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Category from './components/Category';
 import Home from './components/Home';
 import Login from './components/Login'
+import SignUp from './components/SignUp'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route exact path='/technology' element={<Home key="technology" Category="technology" />} />
           
           <Route exact path='/login' element={<Login />} />
+          <Route exact path='/signup' element={<SignUp />} />
 
         </Routes>
       </Router>

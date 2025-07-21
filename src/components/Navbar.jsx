@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -17,8 +18,8 @@ export default function Navbar() {
       </div>
 
       <div className="nav-buttons">
-        <button><a href="/">Login</a></button>
-        <button><a href="/">Sign Up</a></button>
+        <button><Link to="/login">Login</Link></button>
+        <button><Link to="/signup">SignUp</Link></button>
       </div>
     </div>
   );
